@@ -3,7 +3,10 @@ import numpy as np
 import random
 
 def generaRuido(imagen,porcentaje,nombre):
-    img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
+    way = ("C:/Users/Javier/Desktop/TrabajoPID/PID/images/")
+    nom = way + nombre
+    ruta = way+imagen
+    img = cv2.imread(ruta, cv2.IMREAD_GRAYSCALE)
     rows, columns = img.shape
     imgRuido = np.zeros( (rows, columns), dtype = np.uint8)
     valorIN = random.randint(0,255)
@@ -16,4 +19,4 @@ def generaRuido(imagen,porcentaje,nombre):
             else:
                 imgRuido[x,y] = img[x,y]
 
-    cv2.imwrite(imgRuido,nombre)
+    cv2.imwrite(nom,imgRuido)
